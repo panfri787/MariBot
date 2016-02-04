@@ -40,6 +40,7 @@ post '/' do
   frase_elegida = URI.encode array_frases.sample
 
   # Hago una llamada al API de Bots de telegram para contestar al usuario que activa el bot
+	# Sustituir {{api_key}} por la key asociada a tu bot
   uri = URI('https://api.telegram.org/{{api_key}}/sendMessage?chat_id=' + usuario['id'].to_s + '&text=' + frase_elegida.to_s)
 
   Net::HTTP.get(uri)
